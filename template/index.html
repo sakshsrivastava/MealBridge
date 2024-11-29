@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>MealBridge</title>
+  <!-- Link to Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="static/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body class="font-sans bg-gray-50">
+    <header>
+        <div>
+          <div class="logo-container">
+            <a href="{% url 'home' %}">MealBridge</a>
+          </div>
+          <div class="hamburger-menu">
+            <label for="hamburger-checkbox"
+              ><img src="static/hamburger.svg" alt="hamburger"
+            /></label>
+          </div>
+          <input type="checkbox" id="hamburger-checkbox" />
+          <div class="nav-user-container">
+            <nav>
+              <ul>
+                
+                </li>
+                <li><a href="{% url 'abt' %}">About</a></li>
+                <li><a href="{% url 'contact' %}">Contact</a></li>
+                <li><a href="{% url 'vd' %}">Tiffin</a></li>
+                <li><a href="{% url 'logout' %}" style="background-color: orange; padding: 5px; border-radius: 15px; margin-left: 800px;">Logout</a></li>
+                
+              </ul>
+            </nav>
+            <div class="user">
+             
+              <label class="close-icon" for="hamburger-checkbox">
+                <img src="close-icon.svg" alt="close-icon" />
+              </label>
+            </div>
+          </div>
+        </div>
+        </header>
+  <!-- Hero Section -->
+  <section class="relative h-screen bg-cover bg-center" style="background-image: url('static/ss.png'); 
+  height: 450px; margin: 40px; border-radius: 30px;
+  object-fit: cover;">
+    <div class="absolute inset-0 "></div>
+   
+  </section>
+<!-- about -->
+<section class="about-us">
+    <div class="container">
+      <h2>About Us</h2>
+      <p>Welcome to <strong>MealBridge</strong> – your trusted partner in connecting students with local food vendors. We believe that good food should be easy to find, affordable, and tailored to your needs. Whether you're looking for a quick snack, a healthy meal, or something to satisfy your cravings, MealBridge brings you the best dining options in your area, all in one place.</p>
+      <p>Our mission is simple: to make student life easier by providing seamless access to delicious and nutritious meals from local vendors. We’re here to simplify your dining experience, so you can focus on what really matters – your studies, your friends, and your well-being.</p>
+      <p>Join us and discover a world of food made just for you!</p>
+    </div>
+  </section>
+ 
+  
+  <!-- crads -->
+  <section class="colleges">
+    <div class="container">
+      <h2>Places we operate</h2>
+      <div class="card-container">
+        <div class="card">
+          <img src="static/bnn.jpg" alt="College 1">
+          <h3>Bennett University</h3>
+          <p>Noida</p>
+          <a style="margin-top: 20px;"   href="{% url 'vdb' %}" class="px-10 py-1 bg-white border-2 border-black text-black font-semibold rounded-lg shadow-md hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-black transition duration-300 inline-flex items-center">
+            Find Tiffin
+          </a>
+        </div>
+        <div class="card">
+          <img src="static/guu.jpg" alt="College 2">
+          <h3>Galgotia University</h3>
+          <p>Noida</p>
+          <a style="margin-top: 20px;"   href="{% url 'vdg' %}" class="px-10 py-1 bg-white border-2 border-black text-black font-semibold rounded-lg shadow-md hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-black transition duration-300 inline-flex items-center">
+            Find Tiffin
+          </a>
+        </div>
+        <div class="card">
+          <img src="static/Sharda.jpg" alt="College 3">
+          <h3>Sharda University</h3>
+          <p>Noida</p>
+          <a style="margin-top: 20px;"   href="{% url 'vds' %}" class="px-10 py-1 bg-white border-2 border-black text-black font-semibold rounded-lg shadow-md hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-black transition duration-300 inline-flex items-center">
+            Find Tiffin
+          </a>
+        </div>
+        <div class="card">
+          <img src="static/dtu.webp" alt="College 4">
+          <h3>DTU university</h3>
+          <p>Delhi</p>
+          <a style="margin-top: 20px;"   href="{% url 'vds' %}" class="px-10 py-1 bg-white border-2 border-black text-black font-semibold rounded-lg shadow-md hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-black transition duration-300 inline-flex items-center">
+            Find Tiffin
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+   <!-- contact vendor -->
+   <section class="contact-form">
+    <div class="container">
+      <h2>Register as vendor</h2>
+      <form action="#" method="POST" class="form">
+        {% csrf_token %}
+        <div class="form-group">
+          <label for="name">Your Name</label>
+          <input type="text" id="name" name="name" placeholder="Enter your name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" placeholder="Enter your email" required>
+        </div>
+        <div class="form-group">
+          <label for="shop-name">Shop Name</label>
+          <input type="text" id="shop-name" name="shop-name" placeholder="Enter your shop name" required>
+        </div>
+        <div class="form-group">
+          <label for="other-info">Other Info</label>
+          <textarea id="other-info" name="other-info" placeholder="Enter any other details" rows="4"></textarea>
+        </div>
+        <div class="mb-4">
+          
+          <div class="form-group">
+            <label for="shop-name">Write Your college name(just Initials)</label>
+            <input type="text" id="shop-name" name="cname" placeholder="Enter your shop name" required>
+          </div>
+      </div>
+
+        <div class="form-group">
+          <button type="submit" class="btn">Submit</button>
+        </div>
+      </form>
+    </div>
+  </section>
+  
+
+  <footer class="footer">
+    <div class="footer-container">
+      <!-- About Us Section -->
+      <div class="footer-left">
+        <h2 class="company-name">MealBridge</h2>
+        <p class="about-text">
+            MealBridge connects students with local vendors for easy access to affordable and nutritious meals.
+        </p>
+      </div>
+  
+      <!-- Quick Links Section -->
+      <div class="footer-links">
+        <h3 class="footer-heading">Quick Links</h3>
+        <ul class="links-list">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Services</a></li>
+          <li><a href="#">About Us</a></li>
+        
+        </ul>
+      </div>
+  
+      <!-- Social Media Links -->
+      <div class="footer-right">
+        <a href="https://facebook.com" target="_blank" class="social-button facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://twitter.com" target="_blank" class="social-button twitter"><i class="fab fa-twitter"></i></a>
+        <a href="https://instagram.com" target="_blank" class="social-button instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://linkedin.com" target="_blank" class="social-button linkedin"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+    </div>
+  
+    <!-- Copyright Section -->
+ 
+  </footer>
+  
+  <!-- Font Awesome CDN for icons -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  
+
+  
+  <!-- Bootstrap and Popper.js JS (CDN) for Carousel -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz4fnFO9gybFf4L9hf8xs9D2eHHeh6Ue8zXi7qf6yIUl2dxli+X7X/XWBYF" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-pzjw8f+ua7Kw1TIq0Q1Q9eO4J5qzZbZWQU8lJmUJx4F1RbmZpa3h4SK/fJAFK5Cm" crossorigin="anonymous"></script>
+</body>
+
+</html>
